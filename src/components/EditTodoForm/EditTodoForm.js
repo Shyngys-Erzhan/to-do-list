@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Input, Button } from "antd";
+
 import style from "./EditTodoForm.module.css";
 
 export const EditTodoForm = ({ editTodo, task }) => {
@@ -6,23 +8,22 @@ export const EditTodoForm = ({ editTodo, task }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     editTodo(value, task.id);
     setValue("");
   };
 
   return (
     <form className={style.TodoForm} onSubmit={handleSubmit}>
-      <input
+      <Input
         type="text"
         className={style.todo_input}
         placeholder="Update task"
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />
-      <button type="submit" className="t">
+      <Button type="primary" htmlType="submit">
         Update Task
-      </button>
+      </Button>
     </form>
   );
 };

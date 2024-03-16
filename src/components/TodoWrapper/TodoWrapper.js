@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TodoForm } from "../TodoForm/TodoForm";
 import { v4 as uuidv4 } from "uuid";
+import style from "./TodoWrapper.module.css";
 import { Todo } from "../Todo/Todo";
 import { EditTodoForm } from "../EditTodoForm/EditTodoForm";
 uuidv4();
@@ -45,16 +46,16 @@ export const TodoWrapper = () => {
     );
 
   return (
-    <div>
+    <div className={style.container}>
       <h1>Get Things Done!</h1>
       <TodoForm addTodo={addTodo} />
-      {todos.map((todo, index) =>
+      {todos.map((todo, id) =>
         todo.isEditing ? (
-          <EditTodoForm editTodo={editTask} task={todo} />
+          <EditTodoForm key={todo.id} editTodo={editTask} task={todo} />
         ) : (
           <Todo
             task={todo}
-            key={index}
+            key={id}
             toggleComplete={toggleComplete}
             deleteTodo={deleteTodo}
             editTodo={editTodo}

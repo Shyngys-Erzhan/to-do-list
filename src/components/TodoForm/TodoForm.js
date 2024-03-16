@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { CiCircleCheck } from "react-icons/ci";
+import { Input, Button } from "antd";
+
 import style from "./TodoForm.module.css";
 
 export const TodoForm = ({ addTodo }) => {
@@ -6,23 +9,24 @@ export const TodoForm = ({ addTodo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     addTodo(value);
     setValue("");
   };
 
   return (
     <form className={style.TodoForm} onSubmit={handleSubmit}>
-      <input
+      <Input
         type="text"
         className={style.todo_input}
-        placeholder="добавьте задачу"
+        placeholder="add task"
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />
-      <button type="submit" className="todo-btn">
-        Add
-      </button>
+      <Button className={style.todo_button} type="primary" htmlType="submit">
+        <CiCircleCheck
+          className={style.icon_check}
+        />
+      </Button>
     </form>
   );
 };
