@@ -38,16 +38,17 @@ export const TodoWrapper = () => {
     );
   };
 
-  const editTask = (task, id) =>
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
-      )
-    );
+  const editTask = (newTask, id) =>
+  setTodos(
+    todos.map((todo) =>
+      todo.id === id ? { ...todo, text: newTask, isEditing: !todo.isEditing } : todo
+    )
+  );
+
 
   return (
     <div className={style.container}>
-      <h1>Get Things Done!</h1>
+      <h1 className={style.main_text}>To-do-list</h1>
       <TodoForm addTodo={addTodo} />
       {todos.map((todo, id) =>
         todo.isEditing ? (

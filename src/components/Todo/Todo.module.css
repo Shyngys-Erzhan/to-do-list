@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+.task {
+  width: 450px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  padding: 6px 11px;
+}
+
+.task:hover,
+.task:focus {
+  border-color: #1890ff;
+}
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

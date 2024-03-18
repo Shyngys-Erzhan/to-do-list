@@ -1,0 +1,14 @@
+.TodoForm {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.todo_input {
+  width: 450px;
+  margin-bottom: 10px;
+}
+.update_button {
+  margin-bottom: 10px;
+}

@@ -23,9 +23,7 @@ export const TodoForm = ({ addTodo }) => {
         value={value}
       />
       <Button className={style.todo_button} type="primary" htmlType="submit">
-        <CiCircleCheck
-          className={style.icon_check}
-        />
+        <CiCircleCheck className={style.icon_check} size={24} />
       </Button>
     </form>
   );

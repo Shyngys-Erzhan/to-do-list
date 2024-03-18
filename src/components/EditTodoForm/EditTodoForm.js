@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input, Button } from "antd";
 
 import style from "./EditTodoForm.module.css";
@@ -9,8 +9,11 @@ export const EditTodoForm = ({ editTodo, task }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     editTodo(value, task.id);
-    setValue("");
   };
+
+  useEffect(() => {
+    setValue(task.text);
+  }, [task]);
 
   return (
     <form className={style.TodoForm} onSubmit={handleSubmit}>
@@ -21,7 +24,13 @@ export const EditTodoForm = ({ editTodo, task }) => {
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />
-      <Button type="primary" htmlType="submit">
+      <Button
+        className={style.update_button}
+        type="primary"
+        htmlType="submit"
+        onClick={handleSubmit}
+        disabled={!value.trim()}
+      >
         Update Task
       </Button>
     </form>
